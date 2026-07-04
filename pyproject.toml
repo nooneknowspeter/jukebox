@@ -1,0 +1,7 @@
+[project]
+name = "jukebox"
+version = "0.1.0"
+description = "themes inspired by music cover art"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
