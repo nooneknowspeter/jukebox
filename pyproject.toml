@@ -4,4 +4,10 @@ version = "0.1.0"
 description = "themes inspired by music cover art"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "pillow>=12.3.0",
+    "pytest>=9.1.1",
+    "regex>=2026.6.28",
+    "requests>=2.34.2",
+]
