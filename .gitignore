@@ -1,2 +1,7 @@
+bin/
+
 # nix artifacts
 .direnv/
+
+# python artifacts
+__pycache__/
