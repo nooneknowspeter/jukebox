@@ -35,8 +35,8 @@
 
         dev_pkgs = with pkgs; [
           act
-					direnv
-					git
+          direnv
+          git
           just
         ];
 
@@ -56,6 +56,10 @@
             ++ runtime_pkgs
             ++ dev_pkgs
             ++ fmt_pkgs;
+          };
+
+          fmt = pkgs.mkShell {
+            packages = with pkgs; [ just ] ++ fmt_pkgs;
           };
         };
       }
