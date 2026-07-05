@@ -56,6 +56,16 @@
             ++ runtime_pkgs
             ++ dev_pkgs
             ++ fmt_pkgs;
+
+            shellHook = ''
+              if [ ! -d .venv ]; then
+                  uv venv
+              fi
+
+              source .venv/bin/activate
+
+              uv sync
+            '';
           };
 
           fmt = pkgs.mkShell {
