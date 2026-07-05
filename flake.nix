@@ -37,12 +37,15 @@
           act
           direnv
           git
+          htmlq
+          jq
           just
         ];
 
         fmt_pkgs = with pkgs; [
           treefmt
 
+          isort
           nixfmt
           prettier
           ruff

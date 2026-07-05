@@ -1,4 +1,9 @@
 # https://github.com/numtide/treefmt-nix/tree/main/examples
+[formatter.isort]
+command = "isort"
+excludes = []
+includes = ["*.py", "*.pyi"]
+options = []
 
 [formatter.nixfmt]
 command = "nixfmt"
