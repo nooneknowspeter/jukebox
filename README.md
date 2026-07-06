@@ -1,3 +1,19 @@
+> [!NOTE]
+>
+> AI coding agents are currently being used
+> to assist with the development in this repository
+> including documentation.
+>
+> It is fine to contribute with an agent.
+> The use of agents is to slightly increase output.
+> However, guidelines will be put into place
+> to maximize **quality** of agent outputs.
+>
+> Also, a warning to vibe coders,
+> please be aware of quality and take into
+> consideration the time and effort of others
+> and also your own work.
+
 # jukebox
 
 A collection of themes inspired by music cover art.
