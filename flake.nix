@@ -40,6 +40,7 @@
           htmlq
           jq
           just
+          opencode
         ];
 
         fmt_pkgs = with pkgs; [
