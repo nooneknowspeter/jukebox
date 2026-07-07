@@ -51,6 +51,26 @@
           prettier
           ruff
         ];
+
+        jukeboxPackage = pkgs.python3Packages.buildPythonPackage {
+          pname = "jukebox";
+          version = "0.2.0";
+          src = ./.;
+          pyproject = true;
+
+          build-system = with pkgs.python3Packages; [
+            setuptools
+          ];
+
+          dependencies = with pkgs.python3Packages; [
+            beautifulsoup4
+            jinja2
+            pillow
+            pyyaml
+            regex
+            requests
+          ];
+        };
       in
       {
         devShells = {
@@ -75,6 +95,16 @@
           fmt = pkgs.mkShell {
             packages = with pkgs; [ just ] ++ fmt_pkgs;
           };
+        };
+
+        packages = {
+          default = jukeboxPackage;
+          jukebox = jukeboxPackage;
+        };
+
+        apps.default = {
+          type = "app";
+          program = "${jukeboxPackage}/bin/jukebox";
         };
       }
     );

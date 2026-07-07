@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "jukebox"
 version = "0.1.0"
@@ -13,3 +17,13 @@ dependencies = [
     "regex>=2026.6.28",
     "requests>=2.34.2",
 ]
+
+[project.scripts]
+jukebox = "jukebox.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+jukebox = ["templates/**/*.j2"]
+themes = ["**/theme.yaml"]
