@@ -140,10 +140,11 @@ def main() -> None:
             author_name = theme.author.name if theme.author else "unknown"
 
             print(
-                f"  {theme.artist_slug}/{theme.slug:<40}"
-                f" {theme.name:<40}"
-                f" {theme.artist:<30}"
+                f"- {theme.artist_slug}/{theme.slug}"
+                f" | {theme.name}"
+                f" - {theme.artist}"
                 f" by {author_name}",
+                "",
             )
 
     elif cli_args.command == "show":
