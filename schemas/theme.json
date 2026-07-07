@@ -1,0 +1,119 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Jukebox Theme Manifest",
+    "type": "object",
+    "required": ["name", "artist", "palette"],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "album/single name"
+        },
+        "artist": {
+            "type": "string",
+            "description": "artist/band name"
+        },
+        "type": {
+            "type": "string",
+            "enum": ["album", "single", "ep", "compilation"],
+            "default": "album"
+        },
+        "year": {
+            "type": "integer",
+            "description": "release year"
+        },
+        "link": {
+            "type": "object",
+            "properties": {
+                "cover": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "spotify": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "wikipedia": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "author": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "github": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "palette": {
+            "type": "object",
+            "description": "base16 colors (base00-base0F required) + neovim black-metal theme fields",
+            "required": [
+                "base00",
+                "base01",
+                "base02",
+                "base03",
+                "base04",
+                "base05",
+                "base06",
+                "base07",
+                "base08",
+                "base09",
+                "base0A",
+                "base0B",
+                "base0C",
+                "base0D",
+                "base0E",
+                "base0F"
+            ],
+            "properties": {
+                "base00": { "$ref": "#/definitions/hexColor" },
+                "base01": { "$ref": "#/definitions/hexColor" },
+                "base02": { "$ref": "#/definitions/hexColor" },
+                "base03": { "$ref": "#/definitions/hexColor" },
+                "base04": { "$ref": "#/definitions/hexColor" },
+                "base05": { "$ref": "#/definitions/hexColor" },
+                "base06": { "$ref": "#/definitions/hexColor" },
+                "base07": { "$ref": "#/definitions/hexColor" },
+                "base08": { "$ref": "#/definitions/hexColor" },
+                "base09": { "$ref": "#/definitions/hexColor" },
+                "base0A": { "$ref": "#/definitions/hexColor" },
+                "base0B": { "$ref": "#/definitions/hexColor" },
+                "base0C": { "$ref": "#/definitions/hexColor" },
+                "base0D": { "$ref": "#/definitions/hexColor" },
+                "base0E": { "$ref": "#/definitions/hexColor" },
+                "base0F": { "$ref": "#/definitions/hexColor" },
+                "alt": { "$ref": "#/definitions/hexColor" },
+                "alt_bg": { "$ref": "#/definitions/hexColor" },
+                "bg": { "$ref": "#/definitions/hexColor" },
+                "comment": { "$ref": "#/definitions/hexColor" },
+                "constant": { "$ref": "#/definitions/hexColor" },
+                "fg": { "$ref": "#/definitions/hexColor" },
+                "func": { "$ref": "#/definitions/hexColor" },
+                "keyword": { "$ref": "#/definitions/hexColor" },
+                "line": { "$ref": "#/definitions/hexColor" },
+                "number": { "$ref": "#/definitions/hexColor" },
+                "operator": { "$ref": "#/definitions/hexColor" },
+                "property": { "$ref": "#/definitions/hexColor" },
+                "string": { "$ref": "#/definitions/hexColor" },
+                "type": { "$ref": "#/definitions/hexColor" },
+                "visual": { "$ref": "#/definitions/hexColor" },
+                "diag_red": { "$ref": "#/definitions/hexColor" },
+                "diag_blue": { "$ref": "#/definitions/hexColor" },
+                "diag_yellow": { "$ref": "#/definitions/hexColor" },
+                "diag_green": { "$ref": "#/definitions/hexColor" }
+            }
+        }
+    },
+    "definitions": {
+        "hexColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+    }
+}
