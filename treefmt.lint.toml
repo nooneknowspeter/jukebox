@@ -1,10 +1,4 @@
 # https://github.com/numtide/treefmt-nix/tree/main/examples
-[formatter.isort]
-command = "isort"
-excludes = []
-includes = ["*.py", "*.pyi"]
-options = ["-c"]
-
 [formatter.nixfmt]
 command = "nixfmt"
 excludes = []
