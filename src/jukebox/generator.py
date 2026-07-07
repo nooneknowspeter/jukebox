@@ -4,8 +4,6 @@ jukebox
 jinja2 template engine for rendering themes to output formats
 """
 
-# TODO: reduce llm repeated code
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -13,6 +11,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 from src.jukebox.models import Theme
+
 
 TEMPLATES_DIRECTORY = Path(__file__).resolve().parent / "templates"
 OUTPUT_DIRECTORY = Path.cwd() / "output"
@@ -27,32 +26,56 @@ EXTENSION_MAP = {
     "yazi": ".toml",
 }
 
+TEMPLATE_TARGETS: dict[str, str] = {
+    "ghostty": "terminal/ghostty.j2",
+    "wezterm": "terminal/wezterm.j2",
+}
+
+
+COLOR_BIT_DEPTH: int = 2**8
+
+
+def _hexStringConversion(hex_color: str) -> tuple[int, ...]:
+    """
+    intermediary function to convert hex color string to rgb tuple
+    """
+    hex_value: str = hex_color.lstrip("#")
+
+    rgb_list: list[int] = [int(hex_value[index : index + 2], 16) for index in (0, 2, 4)]
+
+    return tuple(rgb_list)
+
 
 def _hex2rgb(hex_color: str) -> str:
     """
     convert #ff00aa to 255,0,170.
     """
-    hex_value = hex_color.lstrip("#")
-
-    return ",".join(str(int(hex_value[index : index + 2], 16)) for index in (0, 2, 4))
+    return ",".join(str(value) for value in _hexStringConversion(hex_color))
 
 
 def _lighten(hex_color: str, amount: int = 10) -> str:
     """lighten a hex color by mixing with white."""
-    hex_value = hex_color.lstrip("#")
-    red, green, blue = (int(hex_value[index : index + 2], 16) for index in (0, 2, 4))
+    red, green, blue = (value for value in _hexStringConversion(hex_color))
 
-    red = min(255, red + int((255 - red) * amount / 100))
-    green = min(255, green + int((255 - green) * amount / 100))
-    blue = min(255, blue + int((255 - blue) * amount / 100))
+    red = min(
+        COLOR_BIT_DEPTH,
+        red + int((COLOR_BIT_DEPTH - red) * amount / 100),
+    )
+    green = min(
+        COLOR_BIT_DEPTH,
+        green + int((COLOR_BIT_DEPTH - green) * amount / 100),
+    )
+    blue = min(
+        COLOR_BIT_DEPTH,
+        blue + int((COLOR_BIT_DEPTH - blue) * amount / 100),
+    )
 
     return f"#{red:02x}{green:02x}{blue:02x}"
 
 
 def _darken(hex_color: str, amount: int = 10) -> str:
     """darken a hex color by mixing with black."""
-    hex_value = hex_color.lstrip("#")
-    red, green, blue = (int(hex_value[index : index + 2], 16) for index in (0, 2, 4))
+    red, green, blue = (value for value in _hexStringConversion(hex_color))
 
     red = max(0, red - int(red * amount / 100))
     green = max(0, green - int(green * amount / 100))
@@ -64,11 +87,13 @@ def _darken(hex_color: str, amount: int = 10) -> str:
 def buildEnv() -> Environment:
     """construct a jinja2 environment with jukebox filters."""
     template_loader = FileSystemLoader(str(TEMPLATES_DIRECTORY))
+
     jinja_env = Environment(
         loader=template_loader,
         trim_blocks=True,
         lstrip_blocks=True,
     )
+
     jinja_env.filters["hex2rgb"] = _hex2rgb
     jinja_env.filters["lighten"] = _lighten
     jinja_env.filters["darken"] = _darken
@@ -95,8 +120,9 @@ def generateAll(
     targets: list[str] | None = None,
 ) -> None:
     """generate all themes for all (or specified) output targets."""
-    target_map = _discoverTargets(jinja_env)
-    selected_targets = {
+    target_map: dict[str, str] = _discoverTargets(jinja_env)
+
+    selected_targets: dict[str, str] = {
         target_name: template_path
         for target_name, template_path in target_map.items()
         if targets is None or target_name in targets
@@ -124,7 +150,7 @@ def _resolvePalette(theme: Theme) -> dict[str, str]:
     merge base16 with semantic aliases.
     aliases take precedence when present.
     """
-    base_color_keys = [
+    base_color_keys: list[str] = [
         "base00",
         "base01",
         "base02",
@@ -142,7 +168,7 @@ def _resolvePalette(theme: Theme) -> dict[str, str]:
         "base0E",
         "base0F",
     ]
-    alias_color_keys = [
+    alias_color_keys: list[str] = [
         "alt",
         "alt_bg",
         "bg",
@@ -165,6 +191,7 @@ def _resolvePalette(theme: Theme) -> dict[str, str]:
     ]
 
     base_palette = {key: getattr(theme.palette, key) for key in base_color_keys}
+
     alias_palette = {
         key: getattr(theme.palette, key)
         for key in alias_color_keys
@@ -180,13 +207,13 @@ def _writeExact(destination: Path, content: str, target_name: str) -> None:
     """write rendered content to the correct output path."""
     file_extension = EXTENSION_MAP.get(target_name, ".txt")
     destination = destination.with_suffix(file_extension)
-    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
     destination.write_text(content)
 
 
 def _discoverTargets(jinja_env: Environment) -> dict[str, str]:
     """map target name to template path relative to templates directory."""
-    return {
-        "ghostty": "terminal/ghostty.j2",
-        "wezterm": "terminal/wezterm.j2",
-    }
+    return TEMPLATE_TARGETS
