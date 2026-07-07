@@ -13,24 +13,24 @@ selection_bg = "#222222"
 selection_fg = "#c1c1c1"
 
 ansi = [
-    "#000000",
-    "#5f8787",
-    "#eceee3",
-    "#974b46",
-    "#888888",
-    "#999999",
-    "#aaaaaa",
-    "#c1c1c1",
+  "#000000",
+  "#5f8787",
+  "#eceee3",
+  "#974b46",
+  "#888888",
+  "#999999",
+  "#aaaaaa",
+  "#c1c1c1",
 ]
 brights = [
-    "#333333",
-    "#7f9f9f",
-    "#eff1e8",
-    "#ab6f6b",
-    "#9f9f9f",
-    "#adadad",
-    "#bbbbbb",
-    "#c1c1c1",
+  "#333333",
+  "#7f9f9f",
+  "#f0f1e8",
+  "#ac6f6b",
+  "#a0a0a0",
+  "#adadad",
+  "#bbbbbb",
+  "#c1c1c1",
 ]
 
 [colors.tab_bar]
