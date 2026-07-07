@@ -30,6 +30,8 @@
         };
 
         runtime_pkgs = with pkgs; [
+          nodejs
+          pnpm
           uv
         ];
 
