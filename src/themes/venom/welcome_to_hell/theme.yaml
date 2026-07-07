@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Welcome to Hell"
 artist: "Venom"
+type: album
+year: 1981
 link:
     spotify: "https://open.spotify.com/album/72v57SJxlkhi5ALoBTBGH0?si=OLL2BN1aTsu_bdEzo_Y_DA"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#211816"
+    string: "#f8f7f2"
+    type: "#fc302e"

@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Black Seeds of Vengence"
 artist: "Nile"
+type: album
+year: 2000
 link:
     spotify: "https://open.spotify.com/album/4HezNdJaAs7VDtGwt1VbDe?si=PtCWn557SjuwZptTyLiSbA"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#301807"
+    string: "#aa9988"
+    type: "#777755"

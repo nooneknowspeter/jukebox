@@ -1,8 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Dawn of the Black Hearts"
 artist: "Mayhem"
+type: album
+year: 1995
 link:
+    cover: "https://deadtankrecords.com/cdn/shop/files/mayhem_87cb3235-f20c-443c-b87d-7b66c05329a2.jpg"
     wikipedia: "https://en.wikipedia.org/wiki/The_Dawn_of_the_Black_Hearts"
-    cover: "https://imgs.search.brave.com/rp2j6DGMSUsSEILmF9kPZYjU049ShNltPaJAVJrswIs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZWFk/dGFua3JlY29yZHMu/Y29tL2Nkbi9zaG9w/L2ZpbGVzL21heWhl/bV84N2NiMzIzNS1m/MjBjLTQ0M2MtYjg3/ZC03YjY2YzA1MzI5/YTIuanBnP3Y9MTY5/MjA5ODYwMCZ3aWR0/aD0xNDQ1"
 author:
     name: "metalelf0"
     github: "https://github.com/metalelf0"
@@ -23,3 +26,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#4d2020"
+    string: "#f3ecd4"
+    type: "#eecc6c"

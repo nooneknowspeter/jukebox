@@ -1,11 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Valdr Galga"
 artist: "Thyrfing"
+type: album
+year: 1999
 link:
     spotify: "https://open.spotify.com/album/2820GjUjWy1DB2tVLAVF05?si=kTfxpX-BRhmSXzpzLKHmzA"
 author:
     name: "metalelf0"
     github: "https://github.com/metalelf0"
-# TODO: check
 palette:
     base00: "#000000"
     base01: "#121212"
@@ -17,9 +19,12 @@ palette:
     base07: "#c1c1c1"
     base08: "#5f8787"
     base09: "#aaaaaa"
-    base0A: "#79241f"
-    base0B: "#f8f7f2"
+    base0A: "#AF4C35"
+    base0B: "#B04024"
     base0C: "#aaaaaa"
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#31120a"
+    string: "#B04024"
+    type: "#AF4C35"

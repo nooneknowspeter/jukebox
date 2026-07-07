@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "The Secrets of the Black Arts"
 artist: "Dark Funeral"
+type: album
+year: 1996
 link:
     spotify: "https://open.spotify.com/album/7uybiQG5eHqdiXF69EDJOs?si=LhTKyQSjTQmwQadMS9_DWQ"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#060f23"
+    string: "#fbcb97"
+    type: "#d0dfee"

@@ -1,11 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Ugra-Karma"
 artist: "Impaled Nazarene"
+type: album
+year: 1993
 link:
     spotify: "https://open.spotify.com/album/2oydMbDdxcnTqUyj282hES?si=-1Gq6Po1TPmwdZt8zXd-vw"
 author:
     name: "metalelf0"
     github: "https://github.com/metalelf0"
-# TODO:
 palette:
     base00: "#000000"
     base01: "#121212"
@@ -17,9 +19,12 @@ palette:
     base07: "#c1c1c1"
     base08: "#5f8787"
     base09: "#aaaaaa"
-    base0A: "#556677"
-    base0B: "#7799bb"
+    base0A: "#B29740"
+    base0B: "#DC2A22"
     base0C: "#aaaaaa"
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#191A11"
+    string: "#DC2A22"
+    type: "#B29740"

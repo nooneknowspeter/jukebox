@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "At the Heart of Winter"
 artist: "Immortal"
+type: album
+year: 1999
 link:
     spotify: "https://open.spotify.com/album/7cuQrfE3R8cX53zLoGF6Ma?si=6K6zw6EvQTGUedJaiP_VjQ"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#1b161f"
+    string: "#7799bb"
+    type: "#556677"

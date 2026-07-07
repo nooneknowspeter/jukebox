@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Phantom"
 artist: "Khold"
+type: album
+year: 2002
 link:
     spotify: "https://open.spotify.com/album/0PvYSpk153FJRwrALa2WGX?si=KVA-2Hk5Qrqeap8edRanGw"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#39121b"
+    string: "#eceee3"
+    type: "#974b46"

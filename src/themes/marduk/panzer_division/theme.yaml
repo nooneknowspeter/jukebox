@@ -1,6 +1,10 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Panzer Division"
 artist: "Marduk"
+type: album
+year: 1999
 link:
+    cover: "https://upload.wikimedia.org/wikipedia/en/d/dc/PanzerDivisionMarduk.jpg"
     wikipedia: "https://en.wikipedia.org/wiki/Panzer_Division_Marduk"
 author:
     name: "metalelf0"
@@ -22,3 +26,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#060b12"
+    string: "#a5aaa7"
+    type: "#626b67"
