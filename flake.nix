@@ -52,6 +52,7 @@
           nixfmt
           prettier
           ruff
+          taplo
         ];
 
         jukeboxPackage = pkgs.python3Packages.buildPythonPackage {
