@@ -31,3 +31,10 @@ not just by having a clean and centralized place to have
 these themes available for different mediums,
 but to have themes for different cover arts of different genres and artists.
 Get closer to the feeling of the music through these themes.
+
+## Screenshots
+
+See [SCREENSHOTS.md](./SCREENSHOTS.md) for cover art + palette previews.
+
+The same data is available as json at [assets/screenshots.json](./assets/screenshots.json)
+for use in frontends (react, next.js, etc.).
