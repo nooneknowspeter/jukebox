@@ -10,6 +10,7 @@ import argparse
 import os
 import sys
 from pathlib import Path
+import logging
 
 from src.jukebox.generator import (
     EXTENSION_MAP,
@@ -43,65 +44,113 @@ def _readVersion() -> str:
     return "unknown"
 
 
+def _versionSplashScreen() -> None:
+    # TODO: ascii art/animation function, --version
+    # show version and ascii display
+    pass
+
+
 def main() -> None:
+
+    # main parser
     parser = argparse.ArgumentParser(
         prog="jukebox",
         description="create themes from music cover art manifests",
     )
-    parser.add_argument(
+    _ = parser.add_argument(
         "--version",
         action="version",
         version=f"jukebox {_readVersion()}",
     )
+    _ = parser.add_argument(
+        "--verbose",
+        "-v",
+        action="store_true",
+        dest="is_verbose",
+        help="display debug information",
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    subparsers.add_parser("list", help="list all available themes")
+    # init
+    init_parser = subparsers.add_parser(
+        name="init",
+        help="generate source scheme manifests",
+    )
+    _ = init_parser.add_argument(
+        "--gui",
+        action="store_true",
+        dest="is_launch_gui",
+        help="launch jukebox picker gui",
+    )
+    _ = init_parser.add_argument(
+        "--file",
+        "-f",
+        dest="cover_art_image_filepath",
+        help="cover art image file path",
+    )
 
-    show_parser = subparsers.add_parser("show", help="show theme details")
-    show_parser.add_argument("theme", help="theme slug (artist-album)")
+    # list
+    _ = subparsers.add_parser(
+        name="list",
+        help="list all available themes",
+    )
 
+    # show
+    show_parser = subparsers.add_parser(
+        name="show",
+        help="show theme details",
+    )
+    _ = show_parser.add_argument(
+        "theme",
+        help="theme slug (artist-album)",
+    )
+
+    # generate
     generate_parser = subparsers.add_parser(
-        "generate",
+        name="generate",
         help="generate theme output files",
     )
-    generate_parser.add_argument(
+    _ = generate_parser.add_argument(
         "theme",
         nargs="?",
         help="specific theme slug (leave empty for all)",
     )
-    generate_parser.add_argument(
+    _ = generate_parser.add_argument(
         "--target",
         "-t",
         action="append",
         help="target format (e.g. ghostty, wezterm)",
     )
-    generate_parser.add_argument(
+    _ = generate_parser.add_argument(
         "--themes-dir",
         type=Path,
         help="override themes directory",
     )
 
-    subparsers.add_parser(
-        "env",
+    # env
+    _ = subparsers.add_parser(
+        name="env",
         help="show environment variables and constant values",
     )
 
+    # screenshot
     screenshot_parser = subparsers.add_parser(
-        "screenshot",
+        name="screenshot",
         help="generate composite images (cover art + palette swatches)",
     )
-    screenshot_parser.add_argument(
+    _ = screenshot_parser.add_argument(
         "theme",
         nargs="?",
         help="specific theme slug (leave empty for all)",
     )
 
+    # cover
     cover_parser = subparsers.add_parser(
-        "cover",
+        name="cover",
         help="download cover art for a theme",
     )
-    cover_parser.add_argument("theme", help="theme slug")
-    cover_parser.add_argument(
+    _ = cover_parser.add_argument("theme", help="theme slug")
+    _ = cover_parser.add_argument(
         "--output",
         "-o",
         type=Path,
@@ -109,7 +158,18 @@ def main() -> None:
         help="output directory",
     )
 
+    # args
+    parser.set_defaults(is_verbose=False)
+
     cli_args = parser.parse_args()
+
+    # NOTE: arg commands, strategy pattern
+    if cli_args.is_verbose:
+        logging.root.setLevel(level=logging.DEBUG)
+
+    if cli_args.command == "init":
+        if cli_args.is_launch_gui:
+            print("launch gui")
 
     if cli_args.command == "env":
         jukebox_themes_dir_env = os.environ.get("JUKEBOX_THEMES_DIR", "not set")
@@ -133,7 +193,7 @@ def main() -> None:
     else:
         themes_directory = resolveThemesDirectory()
 
-    all_themes = loadAllThemes(themes_directory)
+    all_themes = loadAllThemes(themes_dir=themes_directory)
 
     if cli_args.command == "list":
         for theme in all_themes:
