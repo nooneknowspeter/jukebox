@@ -4,6 +4,8 @@ jukebox
 retrieve cover art from spotify, wikipedia, or direct urls
 """
 
+# TODO: get root logger
+
 from __future__ import annotations
 
 import logging
@@ -38,15 +40,13 @@ def _isImageUrl(url: str) -> bool:
 def retrieveCoverArt(
     url: str | None = None,
     output_filename: str | None = None,
-    is_verbose: bool = False,
 ) -> None:
     """
     download cover art from a url.
     supports: direct image url, wikipedia page, spotify page.
     """
     if url is None:
-        if is_verbose:
-            logging.info(f"url: {url}, please provide a url")
+        logging.info(f"url: {url}, please provide a url")
 
         return
 
@@ -55,22 +55,19 @@ def retrieveCoverArt(
     }
 
     if _isImageUrl(url):
-        if is_verbose:
-            logging.info("source: direct image url")
+        logging.info("source: direct image url")
 
         cover_art_binary = requests.get(url=url, headers=request_headers).content
 
     else:
-        if is_verbose:
-            logging.info(f"get request url: {url}")
+        logging.info(f"get request url: {url}")
 
         http_response: requests.Response = requests.get(
             url=url,
             headers=request_headers,
         )
 
-        if is_verbose:
-            logging.info(f"response: {http_response}")
+        logging.info(f"response: {http_response}")
 
         response_content = http_response.content
         html_soup = BeautifulSoup(
@@ -81,23 +78,19 @@ def retrieveCoverArt(
         cover_art_uri: str = ""
 
         if regex.search("wikipedia", url) is not None:
-            if is_verbose:
-                logging.info("source: wikipedia")
+            logging.info("source: wikipedia")
 
             cover_art_uri = f"https:{str(html_soup.find_all('img')[3]['src'])}"
 
         if regex.search("spotify", url) is not None:
-            if is_verbose:
-                logging.info("source: spotify")
+            logging.info("source: spotify")
 
             cover_art_uri = str(html_soup.find_all("img")[0]["src"])
 
-        if is_verbose:
-            logging.info(f"get cover image content: {cover_art_uri}")
+        logging.info(f"get cover image content: {cover_art_uri}")
 
         if not cover_art_uri:
-            if is_verbose:
-                logging.info("no cover art found at url")
+            logging.info("no cover art found at url")
 
             return
 
@@ -109,14 +102,12 @@ def retrieveCoverArt(
     if output_filename:
         with open(file=output_filename, mode="wb") as output_file:
             try:
-                if is_verbose:
-                    logging.info(f"saving to {output_filename}")
+                logging.info(f"saving to {output_filename}")
 
                 _ = output_file.write(cover_art_binary)
 
             except Exception as error:
-                if is_verbose:
-                    logging.fatal(f"{error}")
+                logging.fatal(f"{error}")
 
                 raise error
 
