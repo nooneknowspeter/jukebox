@@ -22,6 +22,46 @@ development shell with all the project required dependencies
 to start developing.
 A `[.evnrc](./.envrc)` is also provided.
 
+## Init
+
+The simpliest way to create a source scheme,
+is by taking a look at the [other schemes](./src/themes/) in the repo.
+
+There is an `init` option in the cli;
+
+```bash
+python main.py init
+```
+
+Pass a cover art image file path to `-f`;
+
+> [!note]
+>
+> A `--gui` option is available
+
+```bash
+python main.py init -f <COVER_IMAGE_FILEPATH> -o [theme.yaml path]
+```
+
+This will use `opencv`, pick 16 random points on the cover art uv
+and save it to the theme.yaml.
+
+From there, update and tweak the `yaml` file, ensuring it follows the
+standards and conventions.
+
+When done with the theme manifest, generate the outputs using:
+
+```bash
+python main.py generate
+```
+
+> [!note]
+>
+> Ensure your patch/commit contains changes only to you manifest
+> If your change **intentionally** changes other files;
+> additional features, ..., please provide adequate information
+> in you pull request description.
+
 ## Committing
 
 All contributions; including AI generated ones, must be reviewed and committed by hand.
@@ -36,3 +76,6 @@ Ensure all code is formatted using `treefmt`,
 the list of formatters can be found in the `[flake.nix](./flake.nix)`.
 Although, it is recommended to use `treefmt`, the formatters listed
 in the `[flake.nix](./flake.nix)` can be installed and ran individually.
+
+If you love music (everyone does), contribute.
+Add your favorite album or single cover.
