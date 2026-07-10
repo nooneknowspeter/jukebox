@@ -5,3 +5,6 @@ bin/
 
 # python artifacts
 __pycache__/
+*.egg-info/
+*.egg/
+.venv/

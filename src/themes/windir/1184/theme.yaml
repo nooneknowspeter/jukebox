@@ -1,11 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "1184"
 artist: "Windir"
+type: album
+year: 2001
 link:
     spotify: "https://open.spotify.com/album/1tl1oov2DNSZou6LMtElC6?si=al2LDW1HS_GTCVNpsbaJxw"
 author:
     name: "metalelf0"
     github: "https://github.com/metalelf0"
-# TODO: check
 palette:
     base00: "#000000"
     base01: "#121212"
@@ -17,9 +19,12 @@ palette:
     base07: "#c1c1c1"
     base08: "#5f8787"
     base09: "#aaaaaa"
-    base0A: "#777755"
-    base0B: "#aa9988"
+    base0A: "#5E77A3"
+    base0B: "#D9D98E"
     base0C: "#aaaaaa"
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#181c15"
+    string: "#D9D98E"
+    type: "#5E77A3"

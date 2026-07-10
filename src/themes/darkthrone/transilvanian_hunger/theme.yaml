@@ -1,11 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Transilvanian Hunger"
 artist: "Darkthrone"
+type: album
+year: 1994
 link:
     spotify: "https://open.spotify.com/album/4a4g7PAi7KRsCQykBFqE5E?si=GeMFopjlTim3IGkPcbrGNg"
 author:
     name: "metalelf0"
     github: "https://github.com/metalelf0"
-# TODO: check palette
 palette:
     base00: "#000000"
     base01: "#121212"
@@ -17,9 +19,12 @@ palette:
     base07: "#c1c1c1"
     base08: "#5f8787"
     base09: "#aaaaaa"
-    base0A: "#5f81a5"
-    base0B: "#d0dfee"
+    base0A: "#FFFFFF"
+    base0B: "#FFFFFF"
     base0C: "#aaaaaa"
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#000000"
+    string: "#FFFFFF"
+    type: "#FFFFFF"

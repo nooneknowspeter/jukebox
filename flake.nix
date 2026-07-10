@@ -29,8 +29,40 @@
           };
         };
 
-        runtime_pkgs = with pkgs; [
+        build_pkgs = with pkgs; [
+          gcc
+          nodejs
+          pnpm
           uv
+        ];
+
+        runtime_pkgs = with pkgs; [
+          dbus
+          fontconfig
+          freetype
+          glib
+          libcap
+          libglvnd
+          libice
+          libsm
+          libx11
+          libxcb
+          libxcb-image
+          libxcb-keysyms
+          libxcb-render-util
+          libxcb-wm
+          libxext
+          libxkbcommon
+          openssl
+          openxr-loader
+          stdenv.cc.cc
+          wayland
+          xcb-util-cursor
+          zlib
+          SDL2
+          SDL2_image
+          SDL2_mixer
+          SDL2_ttf
         ];
 
         dev_pkgs = with pkgs; [
@@ -40,6 +72,7 @@
           htmlq
           jq
           just
+          opencode
         ];
 
         fmt_pkgs = with pkgs; [
@@ -49,16 +82,45 @@
           nixfmt
           prettier
           ruff
+          taplo
         ];
+
+        jukeboxPackage = pkgs.python3Packages.buildPythonPackage {
+          # TODO: add runtime dependencies
+          pname = "jukebox";
+          version = "0.2.0";
+          src = ./.;
+          pyproject = true;
+
+          build-system = with pkgs.python3Packages; [
+            setuptools
+          ];
+
+          dependencies = with pkgs.python3Packages; [
+            beautifulsoup4
+            jinja2
+            pillow
+            pyyaml
+            regex
+            requests
+          ];
+        };
       in
       {
         devShells = {
           default = pkgs.mkShell {
             packages = [
             ]
+            ++ build_pkgs
             ++ runtime_pkgs
             ++ dev_pkgs
             ++ fmt_pkgs;
+
+            NIX_LD = pkgs.stdenv.cc.bintools.dynamicLinker;
+
+            NIX_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath runtime_pkgs;
+
+            buildInputs = runtime_pkgs;
 
             shellHook = ''
               if [ ! -d .venv ]; then
@@ -74,6 +136,16 @@
           fmt = pkgs.mkShell {
             packages = with pkgs; [ just ] ++ fmt_pkgs;
           };
+        };
+
+        packages = {
+          default = jukeboxPackage;
+          jukebox = jukeboxPackage;
+        };
+
+        apps.default = {
+          type = "app";
+          program = "${jukeboxPackage}/bin/jukebox";
         };
       }
     );

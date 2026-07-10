@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Filosofem"
 artist: "Burzum"
+type: album
+year: 1996
 link:
     spotify: "https://open.spotify.com/album/2XQwZUu0MM9ECgwHbcc8qR?si=NPmTd0yXQAu__YDIbyjlng"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#231c14"
+    string: "#ddeecc"
+    type: "#99bbaa"

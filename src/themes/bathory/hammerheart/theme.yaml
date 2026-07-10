@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Hammerheart"
 artist: "Bathory"
+type: album
+year: 1990
 link:
     spotify: "https://open.spotify.com/album/2ptBwIHjXVgM4al3YWTdlb?si=Oqw8yarDR-efAjuzH3DFfw"
 author:
@@ -22,23 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
-
-# alt = "#5f8787",
-# alt_bg = "#3E2018",
-# bg = "#000000",
-# comment = "#505050",
-# constant = "#aaaaaa",
-# fg = "#c1c1c1",
-# func = "#888888",
-# keyword = "#999999",
-# line = "#000000",
-# number = "#aaaaaa",
-# operator = "#9b99a3",
-# property = "#c1c1c1",
-# string = "#fbcb97", -- first accent
-# type = "#e78a43", -- second accent
-# visual = "#333333",
-# diag_red = "#5f8787",
-# diag_blue = "#999999",
-# diag_yellow = "#5f8787",
-# diag_green = "#6e4c4c",
+    alt_bg: "#3E2018"
+    string: "#fbcb97"
+    type: "#e78a43"

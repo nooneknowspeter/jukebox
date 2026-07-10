@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
 name: "Twilight of the Idols"
 artist: "Gorgoroth"
+type: album
+year: 2003
 link:
     wikipedia: "https://en.wikipedia.org/wiki/Twilight_of_the_Idols_(Gorgoroth_album)"
 author:
@@ -22,3 +25,6 @@ palette:
     base0D: "#888888"
     base0E: "#999999"
     base0F: "#444444"
+    alt_bg: "#2a2325"
+    string: "#ddeecc"
+    type: "#9b8d7f"

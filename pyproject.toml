@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "jukebox"
 version = "0.1.0"
@@ -5,9 +9,25 @@ description = "themes inspired by music cover art"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "beautifulsoup4>=4.15.0",
-    "pillow>=12.3.0",
-    "pytest>=9.1.1",
-    "regex>=2026.6.28",
-    "requests>=2.34.2",
+  "beautifulsoup4>=4.15.0",
+  "jinja2>=3.1.0",
+  "pillow>=12.3.0",
+  "pyyaml>=6.0",
+  "pytest>=9.1.1",
+  "regex>=2026.6.28",
+  "requests>=2.34.2",
+  "numpy>=2.5.1",
+  "pygame-ce>=2.5.7",
+  "opencv-python-headless>=5.0.0.93",
+  "pygame-gui>=0.6.14",
 ]
+
+[project.scripts]
+jukebox = "jukebox.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+jukebox = ["templates/**/*.j2"]
+themes = ["**/theme.yaml"]
