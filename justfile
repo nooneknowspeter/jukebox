@@ -18,3 +18,6 @@ screenshots:
 
 cover-art theme:
     uv run python main.py cover {{ theme }}
+
+run-gui cover_art:
+    uv run python main.py init --gui -f {{ cover_art }}
