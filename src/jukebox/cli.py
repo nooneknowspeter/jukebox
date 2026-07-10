@@ -86,7 +86,15 @@ def main() -> None:
         "--file",
         "-f",
         dest="cover_art_image_filepath",
+        required=True,
         help="cover art image file path",
+    )
+    _ = init_parser.add_argument(
+        "--output",
+        "-o",
+        dest="output_file_path",
+        default="theme.yaml",
+        help="output theme.yaml file path",
     )
 
     # list
@@ -168,8 +176,13 @@ def main() -> None:
         logging.root.setLevel(level=logging.DEBUG)
 
     if cli_args.command == "init":
-        if cli_args.is_launch_gui:
-            print("launch gui")
+        from src.jukebox.init import init
+
+        init(
+            cover_art_image_path=cli_args.cover_art_image_filepath,
+            output_path=cli_args.output_file_path,
+            is_gui=cli_args.is_launch_gui,
+        )
 
     if cli_args.command == "env":
         jukebox_themes_dir_env = os.environ.get("JUKEBOX_THEMES_DIR", "not set")
