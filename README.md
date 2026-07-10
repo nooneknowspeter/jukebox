@@ -37,6 +37,3 @@ Get closer to the feeling of the music through these themes.
 ## Screenshots
 
 See [SCREENSHOTS.md](./SCREENSHOTS.md) for cover art + palette previews.
-
-The same data is available as json at [assets/screenshots.json](./assets/screenshots.json)
-for use in frontends (react, next.js, etc.).
