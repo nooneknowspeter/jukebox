@@ -39,6 +39,20 @@ Pass a cover art image file path to `-f`;
 >
 > A `--gui` option is available
 
+> [!NOTE]
+>
+> The cover art can be retrieved using:
+>
+> ```bash
+> python main.py cover <THEME-SLUG>
+> ```
+>
+> If a `theme.yaml` is made in [`./src/themes`](./src/themes)
+> and a valid link is provided so the cli could retrieve the cover art
+>
+> Generate a different `theme.yaml` in a different path from the init command
+> and copy over the that scheme to your manually defined file.
+
 ```bash
 python main.py init -f <COVER_IMAGE_FILEPATH> -o [theme.yaml path]
 ```
@@ -54,6 +68,16 @@ When done with the theme manifest, generate the outputs using:
 ```bash
 python main.py generate
 ```
+
+Generate screenshots with:
+
+```bash
+python main.py screenshot
+```
+
+> [!note]
+>
+> Run treefmt after generating themes.
 
 > [!note]
 >
