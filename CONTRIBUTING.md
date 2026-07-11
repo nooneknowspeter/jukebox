@@ -75,6 +75,12 @@ Generate screenshots with:
 python main.py screenshot
 ```
 
+Update the output manifest:
+
+```bash
+python main.py export
+```
+
 > [!note]
 >
 > Run treefmt after generating themes.
