@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
+name: "Forgotten Days"
+artist: "Pallbearer"
+type: album
+year: 2020
+link:
+    spotify:
+        "https://open.spotify.com/album/7j2AkxHOjfHWD4HSsh7QD5?si=kwwVNQJTQaKQ\
+        72_pB07BZA"
+author:
+    name: "nooneknowspeter"
+    github: "https://github.com/nooneknowspeter"
+palette:
+    base00: "#1C213A"
+    base01: "#3F4B77"
+    base02: "#445343"
+    base03: "#92342F"
+    base04: "#5457A3"
+    base05: "#595E74"
+    base06: "#5A6953"
+    base07: "#556D7D"
+    base08: "#5E7484"
+    base09: "#8C8D5A"
+    base0A: "#84888D"
+    base0B: "#8A8963"
+    base0C: "#969635"
+    base0D: "#B58D54"
+    base0E: "#A9A454"
+    base0F: "#A8B6CB"
