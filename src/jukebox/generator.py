@@ -24,11 +24,13 @@ EXTENSION_MAP = {
     "foot": ".ini",
     "tmux": ".conf",
     "yazi": ".toml",
+    "tinted-theming": ".yaml",
 }
 
 TEMPLATE_TARGETS: dict[str, str] = {
     "ghostty": "terminal/ghostty.j2",
     "wezterm": "terminal/wezterm.j2",
+    "tinted-theming": "misc/tinted-theming.j2",
 }
 
 

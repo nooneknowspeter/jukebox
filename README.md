@@ -34,9 +34,53 @@ Get closer to the feeling of the music through these themes.
 
 ![jukebox gui demo](https://github.com/nooneknowspeter/jukebox/blob/develop/assets/demos/2026-07-10%2000-40-47.gif?raw=true)
 
+## Install
+
+A [`flake.nix`](./flake.nix) is available for nix users.
+
+Add jukebox as an input:
+
+```nix
+{
+  inputs = {
+    jukebox = {
+      url = "github:nooneknowspeter/jukebox";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+}
+```
+
+jukebox can be used with [stylix](https://nix-community.github.io/stylix/index.html):
+
+```nix
+{
+  inputs,
+  pkgs,
+  ...
+}:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+  jukebox_pkg = inputs.jukebox.packages.${system}.default;
+  theme = "bathory-hammerheart.yaml"; # find themes at https://github.com/nooneknowspeter/jukebox/tree/main/output/tinted-theming
+in
+{
+  stylix = {
+
+    enable = true;
+
+    autoEnable = true;
+
+    base16Scheme = "${jukebox_pkg}/share/themes/tinted-theming/${theme}";
+
+  };
+}
+```
+
+Stylix uses [tinted theming](https://github.com/tinted-theming/schemes) schemes,
+thinted theming schemes can be found in the
+[output directory](https://github.com/nooneknowspeter/jukebox/tree/main/output/tinted-theming)
+
 ## Screenshots
 
 See [SCREENSHOTS.md](./SCREENSHOTS.md) for cover art + palette previews.
-
-The same data is available as json at [assets/screenshots.json](./assets/screenshots.json)
-for use in frontends (react, next.js, etc.).

@@ -162,7 +162,7 @@ def main() -> None:
         "--output",
         "-o",
         type=Path,
-        default=Path("assets/screenshots"),
+        default=Path("assets/covers"),
         help="output directory",
     )
 

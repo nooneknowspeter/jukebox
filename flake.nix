@@ -1,5 +1,5 @@
 {
-  description = "themes inspired by music cover art";
+  description = "Generate themes inspired by music cover art";
 
   inputs = {
     flake-utils = {
@@ -85,25 +85,22 @@
           taplo
         ];
 
-        jukeboxPackage = pkgs.python3Packages.buildPythonPackage {
-          # TODO: add runtime dependencies
+        jukeboxPackage = pkgs.stdenv.mkDerivation {
           pname = "jukebox";
-          version = "0.2.0";
+          version = "0.1.0";
           src = ./.;
-          pyproject = true;
 
-          build-system = with pkgs.python3Packages; [
-            setuptools
-          ];
+          installPhase = ''
+            mkdir -p $out/share/themes/
 
-          dependencies = with pkgs.python3Packages; [
-            beautifulsoup4
-            jinja2
-            pillow
-            pyyaml
-            regex
-            requests
-          ];
+            cp -r output/* $out/share/themes/
+          '';
+
+          meta = {
+            description = "Generate themes inspired by music cover art";
+            homepage = "https://github.com/nooneknowspeter/jukebox";
+            license = pkgs.lib.licenses.mit;
+          };
         };
       in
       {
@@ -141,11 +138,6 @@
         packages = {
           default = jukeboxPackage;
           jukebox = jukeboxPackage;
-        };
-
-        apps.default = {
-          type = "app";
-          program = "${jukeboxPackage}/bin/jukebox";
         };
       }
     );

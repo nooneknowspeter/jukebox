@@ -2,6 +2,7 @@ bin/
 
 # nix artifacts
 .direnv/
+result
 
 # python artifacts
 __pycache__/
