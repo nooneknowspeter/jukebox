@@ -21,6 +21,7 @@ from src.jukebox.generator import (
 )
 from src.jukebox.manifest import loadAllThemes, resolveThemesDirectory
 from src.jukebox.screenshots import buildAllScreenshots, retrieveCoverArt
+from src.jukebox.export import exportThemesJson, exportScreenshotsMd
 
 
 def _readVersion() -> str:
@@ -166,6 +167,12 @@ def main() -> None:
         help="output directory",
     )
 
+    # export
+    _ = subparsers.add_parser(
+        name="export",
+        help="export themes.json and regenerate screenshots.md",
+    )
+
     # args
     parser.set_defaults(is_verbose=False)
 
@@ -296,6 +303,10 @@ def main() -> None:
 
         print(f"theme '{cli_args.theme}' not found", file=sys.stderr)
         sys.exit(1)
+
+    elif cli_args.command == "export":
+        exportThemesJson(all_themes)
+        exportScreenshotsMd(all_themes)
 
 
 if __name__ == "__main__":
