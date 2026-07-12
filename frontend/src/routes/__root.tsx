@@ -12,6 +12,8 @@ import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
 
+import { ThemeProvider } from '@/components/theme-provider'
+
 interface MyRouterContext {
     queryClient: QueryClient
 }
@@ -26,9 +28,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
             },
-            {
-                title: 'TanStack Start Starter',
-            },
         ],
         links: [
             {
@@ -42,24 +41,24 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <HeadContent />
             </head>
             <body>
-                {children}
-                <TanStackDevtools
-                    config={{
-                        position: 'bottom-right',
-                    }}
-                    plugins={[
-                        {
-                            name: 'Tanstack Router',
-                            render: <TanStackRouterDevtoolsPanel />,
-                        },
-                        TanStackQueryDevtools,
-                    ]}
-                />
+                <ThemeProvider defaultTheme="system" storageKey="theme">
+                    {children}
+                    <TanStackDevtools
+                        config={{ position: 'bottom-right' }}
+                        plugins={[
+                            {
+                                name: 'Tanstack Router',
+                                render: <TanStackRouterDevtoolsPanel />,
+                            },
+                            TanStackQueryDevtools,
+                        ]}
+                    />
+                </ThemeProvider>
                 <Scripts />
             </body>
         </html>
