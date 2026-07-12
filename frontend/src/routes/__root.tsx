@@ -28,6 +28,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
             },
+            {
+                title: import.meta.env.VITE_APP_TITLE,
+            },
         ],
         links: [
             {
