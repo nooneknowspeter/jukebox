@@ -92,6 +92,12 @@ python main.py export
 > additional features, ..., please provide adequate information
 > in you pull request description.
 
+> [!note]
+>
+> Structure your commit as
+> `feat(theme): add artist - album/single`
+> when submitting themes
+
 ## Committing
 
 All contributions; including AI generated ones, must be reviewed and committed by hand.
