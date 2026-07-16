@@ -627,6 +627,63 @@
         }
     },
     {
+        "slug": "mayhem-deathcrush",
+        "name": "Deathcrush",
+        "artist": "Mayhem",
+        "release_type": "album",
+        "year": 1993,
+        "author": {
+            "name": "nooneknowspeter",
+            "github": "https://github.com/nooneknowspeter"
+        },
+        "link": {
+            "cover": null,
+            "spotify": "https://open.spotify.com/album/2RxBdrvHKwgx57RKrNQ9hz?si=v6oXdyGoRQmk5Q7rsVOGPA",
+            "wikipedia": null
+        },
+        "palette": {
+            "base00": "#000000",
+            "base01": "#121212",
+            "base02": "#222222",
+            "base03": "#333333",
+            "base04": "#999999",
+            "base05": "#c1c1c1",
+            "base06": "#999999",
+            "base07": "#c1c1c1",
+            "base08": "#BB2125",
+            "base09": "#aaaaaa",
+            "base0A": "#c61b1c",
+            "base0B": "#f8f7f2",
+            "base0C": "#aaaaaa",
+            "base0D": "#888888",
+            "base0E": "#999999",
+            "base0F": "#FCFCFC",
+            "alt": "#5f8787",
+            "alt_bg": "#121212",
+            "bg": "#000000",
+            "comment": "#505050",
+            "constant": "#aaaaaa",
+            "fg": "#c1c1c1",
+            "func": "#888888",
+            "keyword": "#999999",
+            "line": "#000000",
+            "number": "#aaaaaa",
+            "operator": "#9b99a3",
+            "property": "#c1c1c1",
+            "string": "#ddeecc",
+            "type": "#999999",
+            "visual": "#333333",
+            "diag_red": "#5f8787",
+            "diag_blue": "#999999",
+            "diag_yellow": "#5f8787",
+            "diag_green": "#6e4c4c"
+        },
+        "images": {
+            "screenshot": "/assets/screenshots/mayhem-deathcrush.png",
+            "cover": "/assets/covers/mayhem-deathcrush.png"
+        }
+    },
+    {
         "slug": "nile-black-seeds-of-vengence",
         "name": "Black Seeds of Vengence",
         "artist": "Nile",

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
+name: "Deathcrush"
+artist: "Mayhem"
+type: album
+year: 1993
+link:
+    spotify:
+        "https://open.spotify.com/album/2RxBdrvHKwgx57RKrNQ9hz?si=v6oXdyGoRQmk\
+        5Q7rsVOGPA"
+author:
+    name: "nooneknowspeter"
+    github: "https://github.com/nooneknowspeter"
+palette:
+    base00: "#000000"
+    base01: "#121212"
+    base02: "#222222"
+    base03: "#333333"
+    base04: "#999999"
+    base05: "#c1c1c1"
+    base06: "#999999"
+    base07: "#c1c1c1"
+    base08: "#BB2125"
+    base09: "#aaaaaa"
+    base0A: "#c61b1c"
+    base0B: "#f8f7f2"
+    base0C: "#aaaaaa"
+    base0D: "#888888"
+    base0E: "#999999"
+    base0F: "#FCFCFC"

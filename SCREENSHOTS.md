@@ -15,6 +15,7 @@ composite images showing cover art alongside base16 palette swatches.
 | ![Phantom](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/khold-phantom.png)                                                    | Phantom                       | Khold            | 2002 |
 | ![Panzer Division](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/marduk-panzer-division.png)                                   | Panzer Division               | Marduk           | 1999 |
 | ![Dawn of the Black Hearts](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/mayhem-dawn-of-the-black-hearts.png)                 | Dawn of the Black Hearts      | Mayhem           | 1995 |
+| ![Deathcrush](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/mayhem-deathcrush.png)                                             | Deathcrush                    | Mayhem           | 1993 |
 | ![Black Seeds of Vengence](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/nile-black-seeds-of-vengence.png)                     | Black Seeds of Vengence       | Nile             | 2000 |
 | ![Forgotten Days](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/pallbearer-forgotten-days.png)                                 | Forgotten Days                | Pallbearer       | 2020 |
 | ![Doedskvad](https://raw.githubusercontent.com/nooneknowspeter/jukebox/refs/heads/develop/assets/screenshots/taake-doedskvad.png)                                                | Doedskvad                     | Taake            | 2005 |
@@ -24,4 +25,4 @@ composite images showing cover art alongside base16 palette swatches.
 
 ---
 
-_17 themes_
+_18 themes_
