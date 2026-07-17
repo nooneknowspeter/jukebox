@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nooneknowspeter/jukebox/main/schemas/theme.json
+name: "Piss In The Wind"
+artist: "Joji"
+type: album
+year: 2026
+link:
+    spotify: "https://open.spotify.com/album/4xmCnIcDIODd6s6gIOgzQs?si=9-encXA6R2CwUH5PrEfxhg"
+author:
+    name: "m3lcy"
+    github: "https://github.com/m3lcy"
+palette:
+    base00: "#000000"
+    base01: "#1A1D14"
+    base02: "#292D1F"
+    base03: "#383C2A"
+    base04: "#D94552"
+    base05: "#F2505D"
+    base06: "#F86B73"
+    base07: "#FF8592" 
+    base08: "#D94343"
+    base09: "#D95D41"
+    base0A: "#E55441"
+    base0B: "#732A24"
+    base0C: "#aaaaaa"
+    base0D: "#522A25"
+    base0E: "#A23835"
+    base0F: "#2A271C"
+    alt_bg: "#2A271C"
+    string: "#F2505D"
+    type: "#D94343"
